@@ -13,9 +13,7 @@ function AddBookToLibrary() {
 
 function ShowLibrary() {
   myLibrary.forEach(book => {
-    console.log(book.title);
-    console.log(book.pages);
   })
 }
 
-ShowLibrary()
+ShowLibrary();
