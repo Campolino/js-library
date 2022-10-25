@@ -9,24 +9,24 @@ function Book(title = "Blank Book", author = "Nobody", pages = 0, read = false )
   this.read = read
 }
 
-function AddBookToLibrary() {
+function addBookToLibrary() {
   // do stuff here
 }
 
-function ShowLibrary() {
+function showLibrary() {
   myLibrary.forEach(book => {
-    page.appendChild(CreateCard(book));
+    page.appendChild(createCard(book));
   })
 }
 
-function CreateCard(book) {
+function createCard(book) {
   let card = document.createElement('div');
   card.className = 'card';
-  card.appendChild(PopulateCard(book));
+  card.appendChild(populateCard(book));
   return card;
 }
 
-function PopulateCard(book) {
+function populateCard(book) {
   let container = document.createElement('div');
   container.className = 'container';
   let title = document.createElement('h4');
@@ -45,4 +45,4 @@ function PopulateCard(book) {
   return container;
 }
 
-ShowLibrary();
+showLibrary();
