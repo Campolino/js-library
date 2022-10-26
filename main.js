@@ -1,4 +1,4 @@
-let myLibrary = [{ 'title': "Senhor da Chuva", 'author': "André Vianco", 'pages': 267, 'read': true }, { 'title': "Senhor da Chuva", 'author': "André Vianco", 'pages': 267, 'read': true }, { 'title': "Senhor da Chuva", 'author': "André Vianco", 'pages': 267, 'read': true }];
+let myLibrary = [{ 'title': "Senhor da Chuva", 'author': "André Vianco", 'pages': 267, 'read': true }, { 'title': "It", 'author': "Stephen King", 'pages': 1168, 'read': false }];
 
 const page = document.querySelector('main');
 
@@ -32,11 +32,11 @@ function populateCard(book) {
   let title = document.createElement('h4');
   title.textContent = `${book.title}`;
   let author = document.createElement('p');
-  author.textContent = `${book.author}`;
+  author.textContent = `Author: ${book.author}`;
   let pages = document.createElement('p');
-  pages.textContent = `${book.pages}`;
+  pages.textContent = `Pages: ${book.pages}`;
   let read = document.createElement('p');
-  read.textContent = `${book.read}`;
+  read.textContent = `${book.read == true ? 'Already read' : 'Not read yet'}`;
 
   container.appendChild(title);
   container.appendChild(author);
