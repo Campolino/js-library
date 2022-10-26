@@ -43,3 +43,19 @@ main {
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
 }
+
+/* Footer style */
+
+footer button {
+  border: none;
+  background-color: white;
+  padding: 5px;
+  border-radius: 50%;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+footer button:hover {
+  background-color: rgba(0,0,0,0.2);
+}
