@@ -50,12 +50,18 @@ footer button {
   border: none;
   background-color: white;
   padding: 5px;
-  border-radius: 50%;
+  border-radius: 5px;
   position: fixed;
   right: 20px;
   bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6AD;
+  gap: 10px;
 }
 
 footer button:hover {
   background-color: rgba(0,0,0,0.2);
+  border: 2px solid gray;
 }
