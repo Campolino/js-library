@@ -1,3 +1,15 @@
+:root {
+  --lightBlue: rgb(174, 243, 243);
+  --lightBlack: rgb(187, 179, 179);
+  --spacePadding: 2px 16px;
+  --borderRadius: 10px;
+  --boxShadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+body {
+  font-size: 1.5rem;
+}
+
 /* Head styles */
 
 #library-logo {
@@ -15,12 +27,11 @@ header {
 
 .card {
   /* Add shadows to create the "card" effect */
-  background-color: rgb(174, 243, 243);
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: var(--lightBlue);
+  box-shadow: var(--boxShadow);
   transition: 0.3s;
-  border-radius: 10px;
+  border-radius: var(--borderRadius);
   width: 100%;
-  font-size: 1.5rem;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -30,9 +41,41 @@ header {
 
 /* Add some padding inside the card container */
 .container {
-  padding: 2px 16px;
+  padding: var(--spacePadding);
 }
 
+/* Form style */
+section {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  background-color: var(--lightBlack);
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 2fr;
+  width: 500px;
+  padding: 16px;
+  border-radius: var(--borderRadius);
+}
+
+input:not([type="submit"]) {
+  border: none;
+  box-shadow: var(--boxShadow);
+}
+
+fieldset {
+  padding: 0;
+  border: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.visible {
+  display: none;
+}
 /* Main styles */
 
 main {
@@ -48,17 +91,13 @@ main {
 
 footer button {
   border: none;
-  background-color: white;
-  padding: 5px;
-  border-radius: 5px;
+  background-color: #6AD;
+  padding: 5px 10px;
+  border-radius: var(--borderRadius);
   position: fixed;
   right: 20px;
   bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #6AD;
-  gap: 10px;
+  font-size: 1.5rem;
 }
 
 footer button:hover {

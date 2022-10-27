@@ -13,10 +13,32 @@
     <link rel="author" href="/humans/about-favicon.txt"><img src="/img/libraryrendered.svg" alt="library svg logo" id="library-logo">
     <div>This is an open source library</div>
   </header>
+  <section>
+    <form class="visible">
+      <label for="title">Book title:</label>
+      <input type="text" id="title" name="title">
+      <label for="author">Author name:</label>
+      <input type="text" id="author" name="author">
+      <label for="pages">Pages:</label>
+      <input type="text" id="pages" name="pages">
+      <div>Already read?</div>
+      <fieldset id="read">
+        <div>
+          <input type="radio" value="true" name="read" id="yes" checked>
+          <label for="yes">Yes</label>
+        </div>
+        <div>
+          <input type="radio" value="false" name="read" id="no">
+          <label for="no">No</label>
+        </div>
+      </fieldset>
+      <input id="sendBook" type="submit" value="Add book">
+    </form> 
+  </section>
   <main>
   </main>
   <footer>
-    <button id="add_book">Add new Book<img src="/img/add.svg" alt="add book"></button>
+    <button id="add_book">Add new Book</button>
   </footer>
   <script src="main.js"></script>
 </body>
