@@ -10,13 +10,16 @@ const read = document.querySelector('#read');
 FR.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  addBookToLibrary(
-    new Book(title.value, author.value, pages.value, read.value)
-  );
-
-  FR.reset();
-
-  showLibrary();
+  if(pages.value <= 0) {
+    alert('Sorry! Number of pages need to be more than 0.')
+  } else {
+    addBookToLibrary(
+      new Book(title.value, author.value, pages.value, read.value)
+    );
+    FR.reset();
+  
+    showLibrary();
+  }
 });
 
 class Book {
