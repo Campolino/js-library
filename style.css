@@ -52,12 +52,10 @@ section {
 
 form {
   background-color: var(--lightBlack);
-  display: grid;
-  gap: 5px;
-  grid-template-columns: 1fr 2fr;
-  width: 500px;
-  padding: 16px;
   border-radius: var(--borderRadius);
+  display: flex;
+  gap: 5px;
+  padding: 16px;
 }
 
 input:not([type="submit"]) {
@@ -69,8 +67,6 @@ fieldset {
   padding: 0;
   border: none;
   display: flex;
-  gap: 20px;
-  justify-content: center;
 }
 
 .visible {
@@ -85,22 +81,4 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
-}
-
-/* Footer style */
-
-footer button {
-  border: none;
-  background-color: #6AD;
-  padding: 5px 10px;
-  border-radius: var(--borderRadius);
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  font-size: 1.5rem;
-}
-
-footer button:hover {
-  background-color: rgba(0,0,0,0.2);
-  border: 2px solid gray;
 }

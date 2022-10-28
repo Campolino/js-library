@@ -1,26 +1,39 @@
-let myLibrary = [{ 'title': "Senhor da Chuva", 'author': "André Vianco", 'pages': 267, 'read': true }, { 'title': "It", 'author': "Stephen King", 'pages': 1168, 'read': false }];
+let myLibrary = [{ 'title': "Senhor da Chuva", 'author': "André Vianco", 'pages': 267, 'read': "yes" }, { 'title': "It", 'author': "Stephen King", 'pages': 1168, 'read': "no" }];
 
 const page = document.querySelector('main');
+const FR = document.querySelector('form');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages');
+const read = document.querySelector('#read');
 
-const toggleForm = document.querySelector('#add_book');
-toggleForm.addEventListener('click', () => {
-  let form = document.querySelector('form');
-  form.classList.toggle('visible');
-  toggleForm.textContent = 'Remove form'
+FR.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  addBookToLibrary(
+    new Book(title.value, author.value, pages.value, read.value)
+  );
+
+  FR.reset();
+
+  showLibrary();
 });
 
-function Book(title = "Blank Book", author = "Nobody", pages = 0, read = false ) {
-  this.title = title,
-  this.author = author,
-  this.pages = pages,
-  this.read = read
+class Book {
+  constructor(title = "Blank Book", author = "Nobody", pages = 0, read = "no") {
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.read = read;
+  }
 }
 
-function addBookToLibrary() {
-  // do stuff here
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
 
 function showLibrary() {
+  page.textContent = '';
   myLibrary.forEach(book => {
     page.appendChild(createCard(book));
   })
@@ -43,7 +56,7 @@ function populateCard(book) {
   let pages = document.createElement('p');
   pages.textContent = `Pages: ${book.pages}`;
   let read = document.createElement('p');
-  read.textContent = `${book.read == true ? 'Already read' : 'Not read yet'}`;
+  read.textContent = `${book.read == "yes" ? 'Already read' : 'Not read yet'}`;
 
   container.appendChild(title);
   container.appendChild(author);
