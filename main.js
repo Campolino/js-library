@@ -2,23 +2,21 @@ let myLibrary = [{ 'id': 1, 'title': "Senhor da Chuva", 'author': "André Vianco
 
 const page = document.querySelector('main');
 const FR = document.querySelector('form');
+const TB = document.querySelector('#title');
+const TA = document.querySelector('#author');
+const TP = document.querySelector('#pages');
+const TR = document.querySelector('#read');
 
 FR.addEventListener('submit', (e) => {
-  const title = document.querySelector('#title');
-  const author = document.querySelector('#author');
-  const pages = document.querySelector('#pages');
-  const read = document.querySelector('#read');
-
   e.preventDefault();
 
   if(pages.value <= 0) {
     alert('Sorry! Number of pages need to be more than 0.')
   } else {
     addBookToLibrary(
-      new Book(title.value, author.value, pages.value, read.value)
+      new Book(TB.value, TA.value, TP.value, TR.value)
     );
-    FR.reset();
-  
+    FR.reset();  
     showLibrary();
   }
 });
@@ -48,6 +46,7 @@ function createCard(book) {
   let card = document.createElement('div');
   card.className = 'card';
   card.appendChild(populateCard(book));
+  book.read == 'yes' ? '' : card.classList.toggle('not-read');
   return card;
 }
 
@@ -62,12 +61,23 @@ function populateCard(book) {
   pages.textContent = `Pages: ${book.pages}`;
   let read = document.createElement('p');
   read.textContent = `${book.read == "yes" ? 'Already read' : 'Not read yet'}`;
+
+  let edit = document.createElement('button');
+  edit.textContent = 'change status';
+
+  edit.addEventListener('click', () => {
+    book = myLibrary.at(myLibrary.findIndex(e => e.id == book.id));
+    
+    book.read == 'yes' ? book.read = 'no' : book.read = 'yes';
+    showLibrary();
+  });
+
   let del = document.createElement('button');
   del.setAttribute('id', `${book.id}`);
   del.textContent = 'delete';
 
   del.addEventListener('click', () => {
-    myLibrary.splice(myLibrary.find(e => e.id == book.id), 1);
+    myLibrary.splice(myLibrary.findIndex(e => e.id == book.id), 1);
     showLibrary();
   });
 
@@ -75,7 +85,13 @@ function populateCard(book) {
   container.appendChild(author);
   container.appendChild(pages);
   container.appendChild(read);
-  container.appendChild(del);
+
+  let div_button = document.createElement('div');
+  div_button.setAttribute('class', 'card-button');
+  div_button.appendChild(edit);
+  div_button.appendChild(del);
+
+  container.appendChild(div_button);
   return container;
 }
 

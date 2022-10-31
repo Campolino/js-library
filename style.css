@@ -1,5 +1,6 @@
 :root {
   --lightBlue: rgb(174, 243, 243);
+  --lightRed: rgb(236, 154, 154);
   --lightBlack: rgb(187, 179, 179);
   --spacePadding: 2px 16px;
   --borderRadius: 10px;
@@ -44,6 +45,16 @@ header {
   padding: var(--spacePadding);
 }
 
+.not-read {
+  background-color: var(--lightRed);
+}
+
+.card-button {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  gap: 10px;
+}
 /* Form style */
 section {
   margin-top: 10px;
