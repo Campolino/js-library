@@ -66,19 +66,18 @@ form {
   background-color: var(--lightBlack);
   border-radius: var(--borderRadius);
   display: flex;
+  align-items: center;
   gap: 5px;
   padding: 16px;
 }
 
-input:not([type="submit"]) {
-  border: none;
-  box-shadow: var(--boxShadow);
+fieldset {
+  display: flex;
+  font-size: 1rem;
 }
 
-fieldset {
-  padding: 0;
-  border: none;
-  display: flex;
+fieldset > legend {
+  font-size: 0.8rem;
 }
 
 .visible {
